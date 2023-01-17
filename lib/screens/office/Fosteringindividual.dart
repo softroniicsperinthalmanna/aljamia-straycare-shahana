@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:veterinary/screens/office/viewlist.dart';
+
+import 'fosteringlist.dart';
 class Fosteringcasecard extends StatelessWidget {
   const Fosteringcasecard({Key? key}) : super(key: key);
 
@@ -74,6 +76,7 @@ class Fosteringcasecard extends StatelessWidget {
         backgroundColor:Color(0xff9088E4) ,
         foregroundColor: Colors.white,
         onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Fosteringlist()));
 
         },
         child: Icon(Icons.arrow_back_ios_new,size: 30,),

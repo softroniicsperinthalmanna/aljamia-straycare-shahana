@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:veterinary/models/model.dart';
 import 'package:veterinary/screens/office/viewlist.dart';
+
+import 'collectedindividual.dart';
 class Collectedlist extends StatefulWidget {
   const Collectedlist({Key? key}) : super(key: key);
 
@@ -57,11 +59,14 @@ class _CollectedlistState extends State<Collectedlist> {
 
 
                     itemBuilder: (context,index){
-                      return Expanded(
-                        child: Container(
-                         height: 350,
-                          width: 300,
-                          child: Image(image: AssetImage("assets/images/"+police[index]['img']),fit: BoxFit.cover,),
+                      return InkWell( onTap: (){            Navigator.push(context, MaterialPageRoute(builder: (context)=>collectedcasecard()));
+                      },
+                        child: Expanded(
+                          child: Container(
+                           height: 350,
+                            width: 300,
+                            child: Image(image: AssetImage("assets/images/"+police[index]['img']),fit: BoxFit.cover,),
+                          ),
                         ),
                       );
                     }),

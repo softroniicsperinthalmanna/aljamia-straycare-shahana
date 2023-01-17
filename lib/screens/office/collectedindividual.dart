@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'collectedlist.dart';
 class collectedcasecard extends StatelessWidget {
   const collectedcasecard({Key? key}) : super(key: key);
 
@@ -57,7 +59,10 @@ class collectedcasecard extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor:Color(0xff9088E4) ,
         foregroundColor: Colors.white,
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Collectedlist()));
+
+        },
         child: Icon(Icons.arrow_back_ios_new,size: 30,),
       ),
     );

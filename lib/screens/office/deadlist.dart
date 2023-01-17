@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:veterinary/models/model.dart';
 import 'package:veterinary/screens/office/viewlist.dart';
+
+import 'Deadindividual.dart';
 class Deadlist extends StatefulWidget {
   const Deadlist({Key? key}) : super(key: key);
 
@@ -57,11 +59,14 @@ class _DeadlistState extends State<Deadlist> {
 
 
                     itemBuilder: (context,index){
-                      return Expanded(
-                        child: Container(
-                          height: 350,
-                          width: 350,
-                          child: Image(image: AssetImage("assets/images/"+police[index]['img']),fit: BoxFit.cover,),
+                      return InkWell(onTap: (){            Navigator.push(context, MaterialPageRoute(builder: (context)=>deadcasecard()));
+                      },
+                        child: Expanded(
+                          child: Container(
+                            height: 350,
+                            width: 350,
+                            child: Image(image: AssetImage("assets/images/"+police[index]['img']),fit: BoxFit.cover,),
+                          ),
                         ),
                       );
                     }),
