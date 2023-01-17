@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:veterinary/models/model.dart';
 import 'package:veterinary/screens/office/viewlist.dart';
+
+import 'adoptedindividual.dart';
 class Adoptedlist extends StatefulWidget {
   const Adoptedlist({Key? key}) : super(key: key);
 
@@ -57,11 +59,17 @@ class _AdoptedlistState extends State<Adoptedlist> {
 
 
                     itemBuilder: (context,index){
-                      return Expanded(
-                        child: Container(
-                          height: 350,
-                          width: 350,
-                          child: Image(image: AssetImage("assets/images/cat.jpg"),fit: BoxFit.contain,),
+                      return InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>adoptedcasecard()));
+
+                        },
+                        child: Expanded(
+                          child: Container(
+                            height: 350,
+                            width: 350,
+                            child: Image(image: AssetImage("assets/images/cat.jpg"),fit: BoxFit.contain,),
+                          ),
                         ),
                       );
                     }),

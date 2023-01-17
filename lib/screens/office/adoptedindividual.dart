@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'adoptedlist.dart';
 class adoptedcasecard extends StatelessWidget {
   const adoptedcasecard({Key? key}) : super(key: key);
 
@@ -42,7 +44,8 @@ class adoptedcasecard extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor:Color(0xff9088E4) ,
         foregroundColor: Colors.white,
-        onPressed: (){},
+        onPressed: (){          Navigator.push(context, MaterialPageRoute(builder: (context)=>Adoptedlist()));
+        },
         child: Icon(Icons.arrow_back_ios_new,size: 30,),
       ),
     );
