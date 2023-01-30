@@ -247,6 +247,7 @@ input::placeholder {
     display: grid;
     grid-template-rows: 30px 1fr;
     overflow: hidden;
+    background:#F2FFFD ;
 }
 
 /* dashboard */
