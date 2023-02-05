@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-size: 100%; */
 }
 
 body {
@@ -15,10 +16,10 @@ body {
     /* flex-direction: column; */
     /* align-items: center; */
     justify-content: center;
-    height: 100vh;
+    height:100vh;
     width: 100vw;
-
 }
+
 
 .box h1 {
     /* width: 582px; */
@@ -27,8 +28,8 @@ body {
     font-family: 'Playball';
     font-style: normal;
     font-weight: 400;
-    font-size: 139.68px;
-    line-height: 175px;
+    font-size: 80px;
+    /* line-height: 175px; */
     text-align: center;
     background: linear-gradient(180deg, #8C7AB4 0%, #A39CE7 100%);
     -webkit-background-clip: text;
@@ -44,10 +45,7 @@ body {
 .logo-img {
     width: 411px;
     height: 411px;
-    /* 
-    flex: none;
-    order: 1;
-    flex-grow: 0; */
+
 }
 
 .username {
@@ -55,7 +53,7 @@ body {
 
 
     width: 450px;
-    height: 60px;
+    height: 50px;
 
 
     /* Inside auto layout */
@@ -87,7 +85,7 @@ body {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 30px;
     /* line-height: 3%; */
     /* or 205px */
 
@@ -103,7 +101,7 @@ body {
 
 
     width: 450px;
-    height: 60px;
+    height: 50px;
 
 
     /* Inside auto layout */
@@ -135,7 +133,7 @@ body {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 30px;
     /* line-height: 3%; */
     /* or 205px */
 
@@ -219,17 +217,15 @@ p {
 
 .box {
     /* Auto layout */
-
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    padding: 0px;
+    justify-content: center;
+    padding: auto;
     gap: 10px;
-
-    /* position: absolute; */
-    /* width: 582px; */
-    /* height: 823px; */
+    
     /* margin: 0 auto 0 auto; */
 }
 

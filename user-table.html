@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="user-table.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin home</title>
 </head>
@@ -115,7 +116,59 @@
             </nav>
 
             <section class="dashboard">
-                
+                <ul class="dash-btns">
+                    <li>
+                        <a href="#" class="active">
+                            <i class="feather" id="plus" data-feather="plus"></i>
+                            <span class="links_name" id="plus">Add User</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="feather" id="x" data-feather="x"></i>
+                            <span class="links_name" id="x">Remove User</span>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="#">
+                            <i class="feather" id="plus" data-feather="edit-2"></i>
+                            <span class="links_name" id="plus">Edit User</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tablecontainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Vaishak</td>
+                                <td>9003635353</td>
+                            </tr>
+                            <tr>
+                                <td>Shaheem</td>
+                                <td>9993600353</td>
+                            </tr>
+                            <tr>
+                                <td>Nima</td>
+                                <td>9993697353</td>
+                            </tr>
+                            <tr>
+                                <td>Amal</td>
+                                <td>9976635353</td>
+                            </tr>
+                            <tr>
+                                <td>Vyshnav</td>
+                                <td>9993635334</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </section>
 
