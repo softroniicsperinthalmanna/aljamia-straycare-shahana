@@ -27,9 +27,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: ThemeData(
+        primaryColor: Color(0xff9088E4)
+      ),
       debugShowCheckedModeBanner: false,
-        home: Collectedlist(),
+
+        home: VetCaseCard(),
     );
   }
 }

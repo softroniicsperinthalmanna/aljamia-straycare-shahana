@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart';
 import 'package:veterinary/screens/forest/forestLogin.dart';
 
+import '../../connection/connect.dart';
 import '../../models/model.dart';
 import '../../style/style.dart';
 class forestCaseCard extends StatefulWidget {
@@ -12,108 +16,128 @@ class forestCaseCard extends StatefulWidget {
 }
 
 class _forestCaseCardState extends State<forestCaseCard> {
+  Future<dynamic> getData() async {
+ var response=await get(Uri.parse('${Con.url}viewwild.php'));
+ print(response.body);
+ return json.decode(response.body);
+  }
+@override
+void initState(){
+    super.initState();
+    getData();
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          child: ListView.builder(
-              itemCount: police.length,
-              itemBuilder: (context,index){
-                return Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Card(
-                    color: Color(0xffd4ecfa),
-                    elevation: 10,
+          child: FutureBuilder(
+            future: getData(),
+            builder: (context,snapshot){
+              if(snapshot.hasData){
+                return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context,index){
+                      return Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Card(
+                          color: Color(0xffd4ecfa),
+                          elevation: 10,
 
-                    child: Container(
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          child: Container(
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
 
-                          children:[
-                            Padding(
-                              padding: const EdgeInsets.only(left: 95.0,top: 10,bottom: 10),
-                              child: Container(
+                                children:[
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 95.0,top: 10,bottom: 10),
+                                    child: Container(
+                                              height: 200,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                              ListTile(
+                                                leading:Icon(Icons.person_pin,color:Color(0xff9088E4) ,),
 
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.person_pin,color:Color(0xff9088E4) ,),
-                                        SizedBox(width: 10,),
+                                                  title:Text(snapshot.data[index]['name'],
+                                                    style:GoogleFonts.poppins(color:Color(0xff9088E4) ,fontSize: 22,fontWeight: FontWeight.bold),),
+                                              ), ListTile(
+                                                leading:Icon(Icons.location_on,color:Color(0xff9088E4) ,),
 
-                                        Text(police[index]['reporter_name'],style:GoogleFonts.poppins(color:Color(0xff9088E4) ,fontSize: 22,fontWeight: FontWeight.bold),)
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.location_on,color:Color(0xff9088E4) ,),
-                                        SizedBox(width: 10,),
+                                                  title:Text(snapshot.data[index]['location'],
+                                                    style:normalText),
+                                              ), ListTile(
+                                                leading:Icon(Icons.timer_outlined,color:Color(0xff9088E4) ,),
 
-                                        Text(police[index]['location'],style: normalText,),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.timer_outlined,color:Color(0xff9088E4) ,),
-                                        SizedBox(width: 10,),
-                                        Text(police[index]['time'],style: normalText,),
-                                      ],
-                                    ),
+                                                  title:Text(snapshot.data[index]['dateandtime'],
+                                                    style:normalText),
+                                              ),
 
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Center(
-                              child: Container(
-                                height: 65,
-                                width: 290,
-                                decoration:btnDecoration,
-                                child:Center(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.phone,color: Colors.white,size: 30,),
-                                      SizedBox(
-                                        width: 20,
+
+
+
+                                        ],
                                       ),
-                                      Text('Call Reporter',style: btnText),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                  Center(
+                                    child: Container(
+                                      height: 65,
+                                      width: 290,
+                                      decoration:btnDecoration,
+                                      child:Center(
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.phone,color: Colors.white,size: 30,),
+                                            SizedBox(
+                                              width: 20,
+                                            ),
+                                            Text('Call Reporter',style: btnText),
+                                          ],
+                                        ),
+                                      ),
 
-                              ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Container(
+                                    height: 338,
+                                    width:MediaQuery.of(context).size.width,
+                                    child:
+                                      Image.network(
+                                        "${Con.url}reportCase/${snapshot.data[index]['image']}",fit: BoxFit.fill,),
+                                      ),
+
+                                  Container(
+                                    height: 120,
+                                    width: MediaQuery.of(context).size.width,
+                                    child:Padding(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child: Text(snapshot.data[index]['description'],style: normalText),
+                                    ),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Color(0xff9088E4))
+                                    ),
+                                  ),
+
+
+
+                                ]
                             ),
-                            SizedBox(height: 10,),
-                            Container(
-                              height: 338,
-                              width:MediaQuery.of(context).size.width,
-                              child:Image(image: AssetImage("assets/images/wildani.jpg"),fit: BoxFit.cover,),
+                          ),
+                        ),
+                      );
+                    });
 
-                            ),
-                            Container(
-                              height: 120,
-                              width: MediaQuery.of(context).size.width,
-                              child:Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text(police[index]['description'],style: normalText),
-                              ),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xff9088E4))
-                              ),
-                            ),
+              }
+              else
+              // return Center(child: CircularProgressIndicator());
+              return Center(child: Text('No Data found !'));
+            },
 
-
-
-                          ]
-                      ),
-                    ),
-                  ),
-                );
-              })
+          )
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
