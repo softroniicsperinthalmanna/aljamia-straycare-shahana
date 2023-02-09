@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="collected-animal-card.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin home</title>
+</head>
+
+<body>
+
+    <main>
+
+        <!-- sidebar -->
+
+        <section class="sidebar">
+
+            <!-- Logo -->
+
+            <div class="logo_details">
+                <div class="logo_txt">Stray Care</div>
+                <div class="logo">
+                    <img src="logo.png" alt="logo">
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#" class="active">
+                        <i class="feather" data-feather="grid"></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="feather" data-feather="users"></i>
+                        <span class="links_name">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="feather" data-feather="shield"></i>
+                        <span class="links_name">Police</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="feather" data-feather="feather"></i>
+                        <span class="links_name">Forest</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="feather" data-feather="home"></i>
+                        <span class="links_name">Local-Self Government</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="feather" data-feather="plus-square"></i>
+                        <span class="links_name">Veterinary</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="feather" data-feather="square"></i>
+                        <span class="links_name">Offices</span>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+
+        <section class="rgt-ctnr">
+
+            <nav>
+
+                <ul class="nav-btns">
+                    <li>
+                        <input type="text" placeholder="Search">
+                    </li>
+                    <li class="nav-notfn">
+                        <a href="#" class="active">
+                            <i class="feather" data-feather="bell"></i>
+                            <span class="links_name">Notifications</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <img src="download.jpg" alt="Not supported">
+                        <span>Ashiq Ali</span>
+                        <ul class="dropdown-options">
+                            <li class="dropdown-item">
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <div class="dropdown">
+                            <button>Profile</button>
+                            <div class="dropdown-options">
+                                <a href="#">Dashboard</a>
+                                <a href="#">Logout</a>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </nav>
+
+            <section class="dashboard">
+                <!-- <ul class="dash-btns">
+                    <li>
+                        <a href="#" class="active">
+                            <i class="feather" id="plus" data-feather="arrow-left-circle"></i>
+                            <span class="links_name" id="plus">Go Back</span>
+                        </a> 
+                    </li>
+                </ul> -->
+                <div class="profilecontainer">
+                    <div class="profile-details">
+                        <div class="profile-img">
+                            <img src="horse.jpg" alt=""><br>
+                        </div>
+
+                        <div class="img-footer">
+                            <p style="font-size: small;">Date: <span id="date">Your Date</span></p>
+
+                            <p id="location-section" style="font-size: small;">Location: <span id="location">Your
+                                    Location</span></p>
+                        </div>
+                        <div class="description">
+                            <h1 id="name">Description</h1>
+                            <!-- <h5 id="phone">9846333888</h5><br> -->
+                            <p>
+
+                                <!-- php connection -->
+
+                            </p>
+                        </div>
+                        <div class="collected-date">
+                            <h1 id="name">Collected On</h1>
+                            <p>
+
+                                <!-- php connection -->
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+
+        <script>
+            // Code to retrieve the date and location data from the database and update the HTML elements
+            document.getElementById("date").innerHTML = "02/03/2022";
+            document.getElementById("location").innerHTML = "X67J+94M";
+            feather.replace()
+        </script>
+
+
+
+    </main>
+    <!-- <script>feather.replace()</script> -->
+</body>
+
+</html>

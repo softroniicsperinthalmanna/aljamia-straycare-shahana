@@ -1,0 +1,88 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.dash-btns {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 9px;
+    /* gap: 20px; */
+}
+
+.dash-btns li a {
+    display: flex;
+    align-items: center;
+}
+
+.dash-btns .links_name {
+    margin-left: 1rem;
+}
+
+.dash-btns .feather {
+    height: auto;
+    width: 1.2rem;
+}
+
+.dash-btns #plus {
+    color: #A39CE7;
+}
+
+.dash-btns #x {
+    color: #E79C9C;
+}
+
+.profile-details .profile-img {
+    margin-top: 10px;
+    width: auto;
+    height: 200px;
+    /* border-radius: 50%; */
+    overflow: hidden;
+}
+
+.profile-details .profile-img img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.profile-details h1{
+    font-size: 2rem;
+    color: #E79C9C;
+}
+
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-footer{
+    display: flex;
+}
+
+.img-footer #location-section{
+    margin-left: 55px;
+}
+
+.description{
+    margin-top: 20px;
+    width: auto;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.collected-date #name{
+    font-size: 2rem;
+    color: #12FD8C;
+}
+
+.profilecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: #E79C9C; */
+}
