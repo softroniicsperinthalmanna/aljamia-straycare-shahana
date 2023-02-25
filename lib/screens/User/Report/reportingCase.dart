@@ -366,7 +366,8 @@ class _ReportingCaseState extends State<ReportingCase> {
                       child: TextFormField(
                         controller:mapLocation,
                           decoration: InputDecoration(
-                            // label: Text('--No Location Selected--'),
+                            border:InputBorder.none,
+                           // label: Text('--No Location Selected--'),
                           ),
                         textAlign: TextAlign.center,
                       ),
@@ -634,12 +635,19 @@ class _ReportingCaseState extends State<ReportingCase> {
                     height: 10,
                   ),
                   Align(
-                    alignment: AlignmentDirectional.bottomEnd,
+                    alignment: AlignmentDirectional.bottomCenter,
                     child: Container(
-                      width: 200,
-                      height: 55,
+                      width: 260,
+                      height: 60,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                           shape:RoundedRectangleBorder(
+                             borderRadius: BorderRadius.circular(60),
+                           ),
+
+                            //  color: vio
+
+
                              backgroundColor: vio,),
                              // side: BorderSide(color: vio)),
                           onPressed: () {
@@ -698,7 +706,7 @@ class _ReportingCaseState extends State<ReportingCase> {
                     height: 10,
                   ),
                   Align(
-                    alignment: Alignment.bottomRight,
+                    alignment: Alignment.bottomCenter,
                     child: Visibility(
                       visible: (widget.reportType == 'injured') ? true : false,
                       child: Container(

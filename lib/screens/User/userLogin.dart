@@ -1,18 +1,96 @@
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart';
 import 'package:straycare_app/screens/User/userHome.dart';
 
+import '../../connection/connect.dart';
 import '../../models/model.dart';
 import '../../style/style.dart';
 class UserLogin extends StatefulWidget {
-  const UserLogin({Key? key}) : super(key: key);
-
+   UserLogin({Key? key,required this.type}) : super(key: key);
+var type;
   @override
   State<UserLogin> createState() => _UserLoginState();
 }
 
 class _UserLoginState extends State<UserLogin> {
+  var phone = TextEditingController();
+  var pswd = TextEditingController();
+  var user;
+  var flag=0;
+
+  @override
+  void initState(){
+    super.initState();
+    user=widget.type;
+
+  }
+
+  Future<dynamic> userSignIn() async {
+    var data = {
+      "phone": phone.text,
+      "password": pswd.text
+    };
+    var response = await post(Uri.parse('${Con.url}userLogin.php'), body: data);
+    print(response.body);
+    print(response.statusCode);
+    var loginID;
+    loginID=jsonDecode(response.body)['login_id'];
+    print(loginID);
+    if(response.statusCode==200){
+      if(jsonDecode(response.body)['message']=='User Successfully Logged In') {
+        flag = 1;
+        print('flag value:$flag');
+        print(loginID);
+
+        if (flag == 1) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Logging In ...')));
+          print(loginID);
+          // Navigator.pushReplacement(context,
+          //     MaterialPageRoute(builder: (context) => SellerHome(
+          //
+          //       logId: loginID.toString(),
+          //     )));
+
+           Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => UserHome(
+
+                  //      logID: loginID.toString(),
+                )));
+
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login Failed')));
+          // Navigator.pushReplacement(context,
+          //     MaterialPageRoute(builder: (context) => Login()));
+        }
+      }
+
+
+      else {
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login Failed')));
+        // Navigator.pushReplacement(context,
+        //     MaterialPageRoute(builder: (context) => Login(
+        //
+        //     )));
+      }
+      return jsonDecode(response.body);
+
+
+
+    }
+    else{
+      return Center(child: CircularProgressIndicator());
+    }
+
+
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +114,7 @@ class _UserLoginState extends State<UserLogin> {
               Padding(
                 padding: const EdgeInsets.only(top:1.0,left: 50,right: 50,bottom: 1),
                 child: TextFormField(
+                  controller: phone,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       //  borderSide: BorderSide(color: Color(0xff9088E4)),
@@ -53,17 +132,18 @@ class _UserLoginState extends State<UserLogin> {
                       ),
                       borderRadius: BorderRadius.circular(60.0),
                     ),
-                    hintText: "                               ID",
+                    hintText: "Phone",
                     hintStyle: TextStyle(color: Color(0xff9088E4)),
 
 
                   ),
-
+                  textAlign: TextAlign.center,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top:10.0,left: 50,right: 50,bottom:15),
                 child: TextFormField(
+                  controller: pswd,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       //  borderSide: BorderSide(color: Color(0xff9088E4)),
@@ -81,10 +161,11 @@ class _UserLoginState extends State<UserLogin> {
                       ),
                       borderRadius: BorderRadius.circular(60.0),
                     ),
-                    hintText: "                             CODE",
+                    hintText: "Password",
                     hintStyle: TextStyle(color: Color(0xff9088E4)),
 
                   ),
+                  textAlign: TextAlign.center,
 
                 ),
               ),
@@ -102,15 +183,17 @@ class _UserLoginState extends State<UserLogin> {
             ],
           ),
         ),),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
-        child: FloatingActionButton(
-          backgroundColor:Color(0xff9088E4) ,
-          foregroundColor: Colors.white,
-          onPressed: (){},
-          child: Icon(Icons.arrow_back_ios_new,size: 30,),
-        ),
-      ),
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
+      //   child: FloatingActionButton(
+      //     backgroundColor:Color(0xff9088E4) ,
+      //     foregroundColor: Colors.white,
+      //     onPressed: (){
+      //
+      //     },
+      //     child: Icon(Icons.arrow_back_ios_new,size: 30,),
+      //   ),
+      // ),
 
     )    ;
   }

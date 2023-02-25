@@ -135,17 +135,17 @@ class _lsgCaseCardState extends State<lsgCaseCard> {
 
           )
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
-        child: FloatingActionButton(
-          backgroundColor:Color(0xff9088E4) ,
-          foregroundColor: Colors.white,
-          onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>lsglogin()));
-          },
-          child: Icon(Icons.arrow_back_ios_new,size: 30,),
-        ),
-      ),
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
+      //   child: FloatingActionButton(
+      //     backgroundColor:Color(0xff9088E4) ,
+      //     foregroundColor: Colors.white,
+      //     onPressed: (){
+      //       Navigator.push(context, MaterialPageRoute(builder: (context)=>lsglogin()));
+      //     },
+      //     child: Icon(Icons.arrow_back_ios_new,size: 30,),
+      //   ),
+      // ),
 
     );
   }

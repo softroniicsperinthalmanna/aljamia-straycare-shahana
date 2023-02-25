@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:straycare_app/screens/office/officelogin.dart';
+import 'package:straycare_app/screens/office/deadlist.dart';
+import 'package:straycare_app/auth/login.dart';
 
+import 'adoptRequest.dart';
 import 'adoptedlist.dart';
 import 'collectedlist.dart';
-import 'deadlist.dart';
 import 'fosteringlist.dart';
 class ViewList extends StatelessWidget {
-  const ViewList({Key? key}) : super(key: key);
+   ViewList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,9 @@ class ViewList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             InkWell(
-              onTap: (){                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Collectedlist()));
+              onTap: (){
+
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Collectedlist()));
               },
               child: Container(
                   height: 70,
@@ -35,7 +38,7 @@ class ViewList extends StatelessWidget {
              SizedBox(height: 70,),
             InkWell(
               onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Fosteringlist()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FosteringList()));
 
               },
               child: Container(
@@ -53,7 +56,7 @@ class ViewList extends StatelessWidget {
 
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Adoptedlist()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ToAdoptRequests()));
 
               },
               child: Container(
@@ -71,7 +74,7 @@ class ViewList extends StatelessWidget {
 
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Deadlist()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>DeadList()));
 
               },
               child: Container(
@@ -91,7 +94,10 @@ class ViewList extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor:Color(0xff9088E4) ,
         foregroundColor: Colors.white,
-        onPressed: (){                Navigator.push(context, MaterialPageRoute(builder: (context)=>officelogin()));
+        onPressed: (){
+        //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+        //   type: type,
+        // )));
         },
         child: Icon(Icons.arrow_back_ios_new,size: 30,),
       ),

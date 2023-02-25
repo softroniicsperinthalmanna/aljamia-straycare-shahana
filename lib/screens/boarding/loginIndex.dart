@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:straycare_app/screens/User/userLogin.dart';
+import 'package:straycare_app/screens/localgovernment/lsglogin.dart';
+import 'package:straycare_app/auth/login.dart';
+import 'package:straycare_app/screens/police/policelogin.dart';
+import 'package:straycare_app/screens/vetlogin.dart';
 
 import '../../style/style.dart';
+import '../forest/forestLogin.dart';
 class LoginIndex extends StatelessWidget {
-  const LoginIndex({Key? key}) : super(key: key);
-
+   LoginIndex({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -33,7 +37,9 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 30,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UserLogin()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                    type: 'user',
+                  )));
                 },
                 child: Container(
                     height: 65,
@@ -45,7 +51,10 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 10,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginIndex()));
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                    type:'office' ,
+                  )));
                 },
                 child: Container(
                     height: 65,
@@ -57,7 +66,9 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 10,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginIndex()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                    type: 'police',
+                  )));
                 },
                 child: Container(
                     height: 65,
@@ -69,7 +80,9 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 10,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginIndex()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                    type: 'forest',
+                  )));
                 },
                 child: Container(
                     height: 65,
@@ -81,7 +94,9 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 10,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginIndex()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                    type: 'vet',
+                  )));
                 },
                 child: Container(
                     height: 65,
@@ -93,7 +108,9 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 10,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginIndex()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+                    type: 'lsg',
+                  )));
                 },
                 child: Container(
                     height: 65,

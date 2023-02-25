@@ -65,7 +65,7 @@ class _policeCaseCardState extends State<policeCaseCard> {
                                           ), ListTile(
                                             leading:Icon(Icons.timer_outlined,color:Color(0xff9088E4) ,),
 
-                                            title:Text(snapshot.data[index]['dateandtime'],
+                                            title:Text(snapshot.data[index]['reportedDate'],
                                                 style:normalText),
                                           ),
 
@@ -134,17 +134,17 @@ class _policeCaseCardState extends State<policeCaseCard> {
 
           )
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
-        child: FloatingActionButton(
-          backgroundColor:Color(0xff9088E4) ,
-          foregroundColor: Colors.white,
-          onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>policelogin()));
-          },
-          child: Icon(Icons.arrow_back_ios_new,size: 30,),
-        ),
-      ),
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
+      //   child: FloatingActionButton(
+      //     backgroundColor:Color(0xff9088E4) ,
+      //     foregroundColor: Colors.white,
+      //     onPressed: (){
+      //     Navigator.push(context, MaterialPageRoute(builder: (context)=>policelogin()));
+      //     },
+      //     child: Icon(Icons.arrow_back_ios_new,size: 30,),
+      //   ),
+      // ),
 
     );
   }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'package:straycare_app/screens/forest/forestLogin.dart';
 
+import '../../auth/login.dart';
 import '../../connection/connect.dart';
 import '../../models/model.dart';
 import '../../style/style.dart';
@@ -70,7 +71,7 @@ void initState(){
                                               ), ListTile(
                                                 leading:Icon(Icons.timer_outlined,color:Color(0xff9088E4) ,),
 
-                                                  title:Text(snapshot.data[index]['dateandtime'],
+                                                  title:Text(snapshot.data[index]['reportedDate'],
                                                     style:normalText),
                                               ),
 
@@ -139,17 +140,19 @@ void initState(){
 
           )
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
-        child: FloatingActionButton(
-          backgroundColor:Color(0xff9088E4) ,
-          foregroundColor: Colors.white,
-          onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>forestLogin()));
-          },
-          child: Icon(Icons.arrow_back_ios_new,size: 30,),
-        ),
-      ),
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(bottom: 250.0,right: 20,left: 1),
+      //   child: FloatingActionButton(
+      //     backgroundColor:Color(0xff9088E4) ,
+      //     foregroundColor: Colors.white,
+      //     onPressed: (){
+      //       Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
+      //         type: widget.type,
+      //       )));
+      //     },
+      //     child: Icon(Icons.arrow_back_ios_new,size: 30,),
+      //   ),
+      // ),
 
     );
   }

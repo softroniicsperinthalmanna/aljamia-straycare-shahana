@@ -21,7 +21,7 @@ class _MissingPetState extends State<MissingPet> {
 
 
 
-    var response = await http.post(Uri.parse("${Con.url}viewmissing.php"));
+    var response = await http.get(Uri.parse("${Con.url}viewmissing.php"));
     print(response.body);
 
     return json.decode(response.body);
@@ -109,7 +109,7 @@ class _MissingPetState extends State<MissingPet> {
                                   height: 240,
                                   width: MediaQuery.of(context).size.width,
                                   child: Image.network(
-                                    "${Con.url}missingCase/${list[index]['image']}",fit: BoxFit.cover,),
+                                    "${Con.url}missingCase/${list[index]['image']}",fit: BoxFit.fill,),
                                   // child:
                                   // Center(
                                   //   child: Text(

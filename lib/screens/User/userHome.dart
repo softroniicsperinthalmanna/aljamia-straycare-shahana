@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:straycare_app/screens/User/Adopt/toAdoptList.dart';
 import 'package:straycare_app/screens/User/Report/report.dart';
 
 import '../../style/style.dart';
@@ -47,7 +48,7 @@ class UserHome extends StatelessWidget {
               SizedBox(height: 10,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UserHome()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ListToAdopt()));
                 },
                 child: Container(
                     height: 65,
