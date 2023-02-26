@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:straycare_app/screens/User/userLogin.dart';
+import 'package:straycare_app/auth/userLogin.dart';
 import 'package:straycare_app/screens/localgovernment/lsglogin.dart';
 import 'package:straycare_app/auth/login.dart';
 import 'package:straycare_app/screens/police/policelogin.dart';
@@ -37,8 +37,8 @@ class LoginIndex extends StatelessWidget {
               SizedBox(height: 30,),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(
-                    type: 'user',
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UserLogin(
+
                   )));
                 },
                 child: Container(

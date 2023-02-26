@@ -4,14 +4,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
+import 'package:straycare_app/auth/userRegister.dart';
 import 'package:straycare_app/screens/User/userHome.dart';
 
-import '../../connection/connect.dart';
-import '../../models/model.dart';
-import '../../style/style.dart';
+import '../connection/connect.dart';
+import '../models/model.dart';
+import '../style/style.dart';
 class UserLogin extends StatefulWidget {
-   UserLogin({Key? key,required this.type}) : super(key: key);
-var type;
+   UserLogin({Key? key}) : super(key: key);
+
   @override
   State<UserLogin> createState() => _UserLoginState();
 }
@@ -25,7 +26,7 @@ class _UserLoginState extends State<UserLogin> {
   @override
   void initState(){
     super.initState();
-    user=widget.type;
+
 
   }
 
@@ -171,7 +172,8 @@ class _UserLoginState extends State<UserLogin> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>UserHome()));
+                  userSignIn();
+                 // Navigator.push(context, MaterialPageRoute(builder: (context)=>UserHome()));
                 },
                 child: Container(
                     height: 65,
@@ -179,7 +181,25 @@ class _UserLoginState extends State<UserLogin> {
                     decoration: btnDecoration,
                     child:Center(child: Text('Submit',style:btnText),)
                 ),
-              )
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUp()));
+
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                        text: 'Not Registered Yet?',
+                        style: GoogleFonts.poppins(color: Colors.amber),
+                        children: [
+                          TextSpan(
+                              text: ' Sign Up',
+                              style: GoogleFonts.poppins(
+                                  color: Colors.red, fontSize: 18))
+                        ]),
+                  ))
+
             ],
           ),
         ),),

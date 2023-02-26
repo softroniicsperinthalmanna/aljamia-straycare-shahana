@@ -5,7 +5,9 @@ import 'package:straycare_app/screens/User/userHome.dart';
 import 'package:straycare_app/screens/boarding/boarding.dart';
 import 'package:straycare_app/screens/boarding/loginIndex.dart';
 import 'package:straycare_app/screens/office/adopt.dart';
+import 'package:straycare_app/screens/office/adoptAccepted.dart';
 import 'package:straycare_app/screens/office/adoptRequest.dart';
+import 'package:straycare_app/screens/office/adoptedlist.dart';
 import 'package:straycare_app/screens/office/collectedlist.dart';
 import 'package:straycare_app/screens/office/createCollectionList.dart';
 import 'package:straycare_app/screens/office/fosteringlist.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Adopt(),
+      home: BoardingScreen(),
     );
   }
 }

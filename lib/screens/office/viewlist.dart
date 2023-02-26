@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:straycare_app/screens/office/adopt.dart';
 import 'package:straycare_app/screens/office/deadlist.dart';
 import 'package:straycare_app/auth/login.dart';
 
@@ -32,7 +33,7 @@ class ViewList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(60),
                       color: Color(0xff9088E4)
                   ),
-                  child:Center(child: Text('View Collected Animals',style: TextStyle(color:Colors.white,fontSize: 25),))
+                  child:Center(child: Text(' Collections ',style: TextStyle(color:Colors.white,fontSize: 23),))
               ),
             ),
              SizedBox(height: 70,),
@@ -48,7 +49,7 @@ class ViewList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(60),
                       color: Color(0xff9088E4)
                   ),
-                  child:Center(child: Text('View Animals under Fostering',style: TextStyle(color: Colors.white,fontSize: 23
+                  child:Center(child: Text('Fosterings',style: TextStyle(color: Colors.white,fontSize: 23
                   ),))
               ),
             ),
@@ -56,7 +57,7 @@ class ViewList extends StatelessWidget {
 
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ToAdoptRequests()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Adopt()));
 
               },
               child: Container(
@@ -66,7 +67,7 @@ class ViewList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(60),
                       color: Color(0xff9088E4)
                   ),
-                  child:Center(child: Text('View Adopted Animals',style: TextStyle(color: Colors.white,fontSize: 25),)
+                  child:Center(child: Text('Adoptions',style: TextStyle(color: Colors.white,fontSize: 23),)
                   )
               ),
             ),
@@ -84,7 +85,7 @@ class ViewList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(60),
                       color: Color(0xff9088E4)
                   ),
-                  child:Center(child: Text('View Dead Animals',style: TextStyle(color: Colors.white,fontSize: 25),))
+                  child:Center(child: Text('No Mores',style: TextStyle(color: Colors.white,fontSize: 23),))
               ),
             )
 

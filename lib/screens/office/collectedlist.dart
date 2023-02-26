@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart'as http;
 import 'package:flutter/material.dart';
 import 'package:straycare_app/models/model.dart';
 import 'package:straycare_app/screens/office/collectionDetailPage.dart';
+import 'package:straycare_app/screens/office/createCollectionList.dart';
 import 'package:straycare_app/screens/office/viewlist.dart';
 
 import '../../connection/connect.dart';
@@ -45,9 +47,24 @@ var data={
         appBar: AppBar(
           backgroundColor: Colors.white,
          elevation: 0,
-         title: Text
-            ("Collected Animals",style:TextStyle(color: Color(0xff9088E4),fontSize: 30),),
+          centerTitle: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CreateCollectionList()));
+                  },
+                child: Text('Add',style: GoogleFonts.poppins(color: vio),),
+                 ),
+            ),
+          ],
+
+          title: Text
+            ("Collected Animals",style:GoogleFonts.poppins(color: Color(0xff9088E4),fontSize: 25,fontWeight: FontWeight.bold),),
         ),
+
         body: Container(
           child: SingleChildScrollView(
             child: Column(

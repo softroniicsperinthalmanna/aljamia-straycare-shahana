@@ -79,6 +79,7 @@ class _MyRequestsState extends State<MyRequests> {
                     var formattedSDate = "${sdate.day}-${sdate.month}-${sdate.year}";
                     var rdate;
                     var formattedRDate;
+                    
                     if(list[index]['reply_date']!= "" ) {
                        rdate = DateTime.parse(list[index]['reply_date']);
                       formattedRDate = "${rdate.day}-${rdate.month}-${rdate
@@ -110,7 +111,8 @@ class _MyRequestsState extends State<MyRequests> {
                             children: [
                               Text('Breed : ${list[index]['breed']}'),
                               Text('Send : ${formattedSDate}'),
-                              Text(list[index]['reply_date']==''?'Replied : waiting':'Replied : ${formattedRDate}')
+                             // Text(list[index]['reply_date']==''?'Replied : ':'Replied : ${formattedRDate}'),
+                              list[index]['reply_date']=='0000-00-00 00:00:00'? Text('Replied : Waiting'):Text('Replied : ${formattedRDate}')
 
                             ],
                           ),

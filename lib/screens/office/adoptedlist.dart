@@ -9,6 +9,7 @@ import 'package:straycare_app/screens/office/viewlist.dart';
 
 import '../../connection/connect.dart';
 import '../../style/style.dart';
+import 'adoptedDetailPage.dart';
 import 'collectedindividual.dart';
 class AdoptedList extends StatefulWidget {
   const AdoptedList({Key? key}) : super(key: key);
@@ -112,27 +113,32 @@ else {
                             List list=snapshot.data;
                             return InkWell(
 
-                              // onTap: (){
-                              //   //print(list[index]['name']);
-                              //   print(list[index]['type']);
-                              //   print(list[index]['description']);
-                              //   print(list[index]['gender']);
-                              //   print(list[index]['location']);
-                              //   print(list[index]['color']);
-                              //   print(list[index]['collected_on']);
-                              //   print(list[index]['status']);
-                              //   Navigator.push(context, MaterialPageRoute(builder: (context)=>FosteringDetailPage(
-                              //       diedOn: list[index]['died_on'],
-                              //       status: list[index]['status'],
-                              //       image: list[index]['image'],
-                              //       animal: list[index]['type'],
-                              //       desc: list[index]['description'],
-                              //       gender: list[index]['gender'],
-                              //
-                              //       loc: list[index]['location'],
-                              //       breed: list[index]['breed'],
-                              //       color: list[index]['color'])));
-                              // },
+                              onTap: (){
+                                //print(list[index]['name']);
+                                print(list[index]['animaltype']);
+                                print(list[index]['description']);
+                                print(list[index]['gender']);
+                                print(list[index]['animalId']);
+                                print(list[index]['color']);
+                                print(list[index]['adoptedOn']);
+                                print(list[index]['status']);
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdoptedDetailPage(
+                                    adoptedOn: list[index]['adoptedOn'],
+                                    image: list[index]['image'],
+                                    type: list[index]['animaltype'],
+                                    desc: list[index]['description'],
+                                    gender: list[index]['gender'],
+                                    reqID: list[index]['reqId'],
+                                    animalID: list[index]['animalId'],
+                                    breed: list[index]['breed'],
+                                    color: list[index]['color'],
+                                    userID: list[index]['userId'],
+                                    address: list[index]['address'],
+                                    adoptedBy: list[index]['adoptedBy'],
+                                    phone: list[index]['phone'],
+
+                                )));
+                              },
                               child: Hero(
                                 tag: index,
                                 child: Card(
