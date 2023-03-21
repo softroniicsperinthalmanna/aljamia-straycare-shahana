@@ -1,3 +1,6 @@
+<?php 
+include 'connect.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +21,7 @@
 
         <section class="sidebar">
 
-            <!-- Logo -->
+            <!-- Logo --> 
 
             <div class="logo_details">
                 <div class="logo_txt">Stray Care</div>
@@ -31,43 +34,43 @@
 
             <ul class="nav-links">
                 <li>
-                    <a href="#" class="active">
+                    <a href="admin.php" class="active">
                         <i class="feather" data-feather="grid"></i>
                         <span class="links_name">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="user-table.php">
                         <i class="feather" data-feather="users"></i>
                         <span class="links_name">Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="police-table.php">
                         <i class="feather" data-feather="shield"></i>
                         <span class="links_name">Police</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="forest-table.php">
                         <i class="feather" data-feather="feather"></i>
                         <span class="links_name">Forest</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="local-gov-table.php">
                         <i class="feather" data-feather="home"></i>
                         <span class="links_name">Local-Self Government</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="vet-table.php">
                         <i class="feather" data-feather="plus-square"></i>
                         <span class="links_name">Veterinary</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="office-table.php">
                         <i class="feather" data-feather="square"></i>
                         <span class="links_name">Offices</span>
                     </a>

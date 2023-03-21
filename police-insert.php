@@ -1,3 +1,31 @@
+
+<?php
+include 'connect.php';
+if(isset($_POST['submit'])) {
+    if (isset($_POST['sname']) && isset($_POST['sid']) && isset($_POST['password'])) {
+        $s_name = $_POST['sname'];
+        $s_id = $_POST['sid'];
+        $pass = $_POST['password'];
+        if ($con->connect_error) {
+            die('Could not connect to the database.');
+        } else {
+            echo "connection Ok";
+
+            $sql1 = mysqli_query($con, "INSERT INTO login (code,password,authority_type) values('$s_id','$pass','Police')");
+            $log_id = mysqli_insert_id($con);
+            $sql2 = mysqli_query($con, "INSERT INTO station (station_name,login_id) values ('$s_name','$log_id')");
+            if ($sql1 && $sql2) {
+                echo "User added successfully";
+                echo "<script>window.location.href='police-table.php'; </script>";
+            } else {
+                echo "Fail to add details !!";
+                header('location:police-insert.php');
+            }
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +34,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="collected-animal-card.css">
+    <link rel="stylesheet" href="Police-edit.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin home</title>
 </head>
@@ -32,43 +60,43 @@
 
             <ul class="nav-links">
                 <li>
-                    <a href="#" class="active">
+                    <a href="admin.html" class="active">
                         <i class="feather" data-feather="grid"></i>
                         <span class="links_name">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="user-table.html">
                         <i class="feather" data-feather="users"></i>
                         <span class="links_name">Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="police-table.html">
                         <i class="feather" data-feather="shield"></i>
                         <span class="links_name">Police</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="forest-table.html">
                         <i class="feather" data-feather="feather"></i>
                         <span class="links_name">Forest</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="local-gov-table.html">
                         <i class="feather" data-feather="home"></i>
                         <span class="links_name">Local-Self Government</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="vet-table.html">
                         <i class="feather" data-feather="plus-square"></i>
                         <span class="links_name">Veterinary</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="office-table.html">
                         <i class="feather" data-feather="square"></i>
                         <span class="links_name">Offices</span>
                     </a>
@@ -124,52 +152,54 @@
                         </a> 
                     </li>
                 </ul> -->
-                <div class="profilecontainer">
-                    <div class="profile-details">
-                        <div class="profile-img">
-                            <img src="horse.jpg" alt=""><br>
-                        </div>
-
-                        <div class="img-footer">
-                            <p style="font-size: small;">Date: <span id="date">Your Date</span></p>
-
-                            <p id="location-section" style="font-size: small;">Location: <span id="location">Your
-                                    Location</span></p>
-                        </div>
-                        <div class="description">
-                            <h1 id="name">Description</h1>
-                            <!-- <h5 id="phone">9846333888</h5><br> -->
-                            <p>
-
-                                <!-- php connection -->
-
-                            </p>
-                        </div>
-                        <div class="collected-date">
-                            <h1 id="name">Collected On</h1>
-                            <p>
-
-                                <!-- php connection -->
-
-                            </p>
+                <div class="edit-container">
+                    <div class="profile-head">
+                        <h1>Add Police</h1>
+                        <div class="img-container">
+                            <!-- <img src="young-bearded-man-with-striped-shirt.jpg" alt=""> -->
                         </div>
                     </div>
+                    <div class="edit-form">
+                        <form action="police-insert.php" method="post">
+                            <!-- <div class="name">
+                                <div class="form-grp-inline">
+                                    <label for="firstname">First Name</label><br>
+                                    <input type="text" id="firstname" name="firstname">
+                                </div>
+                                <div class="form-grp-inline">
+                                    <label for="lastname">Last Name</label><br>
+                                    <input type="text" id="lastname" name="lastname">
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div> -->
+                            <div class="form-grp">
+                                <label for="address">Station Name</label><br>
+                                <input type="text" id="address" name="sname" value="<?php  ?>"> 
+                            </div>
+                            <div class="form-grp">
+                                <label for="phone">Station ID</label><br>
+                                <input type="text" id="phone" name="sid">
+                            </div>
+                            <div class="form-grp">
+                                <label for="password">Password</label><br>
+                                <input type="password" id="password" name="password">
+                            </div>
+                            <div class="buttons">
+                                <button type="button">Cancel</button>
+                                <button name="submit" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
             </section>
         </section>
 
 
-        <script>
-            // Code to retrieve the date and location data from the database and update the HTML elements
-            document.getElementById("date").innerHTML = "02/03/2022";
-            document.getElementById("location").innerHTML = "X67J+94M";
-            feather.replace()
-        </script>
-
-
 
     </main>
-    <!-- <script>feather.replace()</script> -->
+    <script>feather.replace()</script>
 </body>
 
 </html>

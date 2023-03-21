@@ -38,12 +38,23 @@
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
+<<<<<<< HEAD
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+=======
+>>>>>>> origin/ashiq-php
 }
 
 .profile-details .profile-img img {
     height: 100%;
     object-fit: contain;
     object-position: center;
+<<<<<<< HEAD
+   
+=======
+>>>>>>> origin/ashiq-php
 }
 
 .profile-details h1{
@@ -63,4 +74,9 @@
     align-items: center;
     justify-content: center;
     /* background: #E79C9C; */
+<<<<<<< HEAD
 }
+
+=======
+}
+>>>>>>> origin/ashiq-php

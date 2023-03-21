@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../Contents/Project/Admin/Admin Web/html/aljamia-straycare-shahana"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "aljamia-straycare-shahana"
+	}
+}

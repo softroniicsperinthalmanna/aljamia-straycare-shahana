@@ -83,4 +83,13 @@ td {
 
 tbody>tr:hover {
   background-color: rgb(220, 228, 134, .2);
+<<<<<<< HEAD
 }
+
+td a i, td a span {
+  display: inline-block;
+  vertical-align: middle;
+}
+=======
+}
+>>>>>>> origin/ashiq-php

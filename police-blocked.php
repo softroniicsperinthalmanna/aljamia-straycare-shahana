@@ -1,3 +1,8 @@
+<?php
+            include 'connect.php';
+            $sql = mysqli_query($con, "SELECT * from station inner join login on station.login_id=login.log_id where status='0'");
+ ?> 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="admin.css">
-    <link rel="stylesheet" href="collected-animal-card.css">
+    <link rel="stylesheet" href="user-table.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin home</title>
+    <title>Edit Police</title>
 </head>
 
 <body>
@@ -32,43 +37,43 @@
 
             <ul class="nav-links">
                 <li>
-                    <a href="#" class="active">
+                    <a href="admin.php" class="active">
                         <i class="feather" data-feather="grid"></i>
                         <span class="links_name">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="user-table.php">
                         <i class="feather" data-feather="users"></i>
                         <span class="links_name">Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="police-table.php">
                         <i class="feather" data-feather="shield"></i>
                         <span class="links_name">Police</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="forest-table.php">
                         <i class="feather" data-feather="feather"></i>
                         <span class="links_name">Forest</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="local-gov-table.php">
                         <i class="feather" data-feather="home"></i>
                         <span class="links_name">Local-Self Government</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="vet-table.php">
                         <i class="feather" data-feather="plus-square"></i>
                         <span class="links_name">Veterinary</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="office-table.php">
                         <i class="feather" data-feather="square"></i>
                         <span class="links_name">Offices</span>
                     </a>
@@ -116,60 +121,53 @@
             </nav>
 
             <section class="dashboard">
-                <!-- <ul class="dash-btns">
+                <ul class="dash-btns">
                     <li>
-                        <a href="#" class="active">
-                            <i class="feather" id="plus" data-feather="arrow-left-circle"></i>
-                            <span class="links_name" id="plus">Go Back</span>
-                        </a> 
+                        <a href="police-table.php" class="active">
+                            <span class="links_name" id="plus">Police Table</span>
+                        </a>
                     </li>
-                </ul> -->
-                <div class="profilecontainer">
-                    <div class="profile-details">
-                        <div class="profile-img">
-                            <img src="horse.jpg" alt=""><br>
-                        </div>
+                </ul>
+                <div class="tablecontainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Police Station</th>
+                                <th>ID</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($sql->num_rows > 0) {
 
-                        <div class="img-footer">
-                            <p style="font-size: small;">Date: <span id="date">Your Date</span></p>
-
-                            <p id="location-section" style="font-size: small;">Location: <span id="location">Your
-                                    Location</span></p>
-                        </div>
-                        <div class="description">
-                            <h1 id="name">Description</h1>
-                            <!-- <h5 id="phone">9846333888</h5><br> -->
-                            <p>
-
-                                <!-- php connection -->
-
-                            </p>
-                        </div>
-                        <div class="collected-date">
-                            <h1 id="name">Collected On</h1>
-                            <p>
-
-                                <!-- php connection -->
-
-                            </p>
-                        </div>
-                    </div>
+                                while ($row = mysqli_fetch_array($sql)) {
+                            ?>
+                                    <tr>
+                                        <td><?php echo $row['station_name']; ?></td>
+                                        <td><?php echo $row['code'] ?></td>
+                                        <td><?php echo $row['password'] ?></td>
+                                        <td>
+                                            <a href="police-restore.php?id=<?php echo $row['log_id'] ?>">
+                                                <i class="feather" id="plus" data-feather="rotate-cw"></i>
+                                                <span class="links_name" id="plus">Restore</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </section>
 
 
-        <script>
-            // Code to retrieve the date and location data from the database and update the HTML elements
-            document.getElementById("date").innerHTML = "02/03/2022";
-            document.getElementById("location").innerHTML = "X67J+94M";
-            feather.replace()
-        </script>
-
-
 
     </main>
-    <!-- <script>feather.replace()</script> -->
+    <script>feather.replace()</script>
 </body>
 
 </html>
